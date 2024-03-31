@@ -19,7 +19,8 @@ def copy_random_file(src_dir, dest_dir):
 		# only count and update for base subdirectories
 		if Path(subdir).parent == Path(src_dir):
 			current_subdir += 1
-			print(f"{Fore.CYAN}crawling through artist {Fore.YELLOW}[{current_subdir}/{total_subdirs}]{Fore.CYAN}...{Style.RESET_ALL}")
+			artist_name = Path(subdir).name
+			print(f"{Fore.CYAN}crawling through artist {Fore.RED}{artist_name} {Fore.YELLOW}[{current_subdir}/{total_subdirs}]{Fore.CYAN}...{Style.RESET_ALL}")
 
 		mp3_files = [file for file in files if file.endswith('.mp3')]
 		if mp3_files:
