@@ -14,13 +14,17 @@ def copy_random_file(src_dir, dest_dir):
 	total_subdirs = count_base_subdirs(src_dir)
 	print(f"{Fore.CYAN}Total number of artists: {Fore.YELLOW}{total_subdirs}{Style.RESET_ALL}")
 	current_subdir = 0
+	song_count = 0
 
 	for subdir, dirs, files in os.walk(src_dir):
 		# only count and update for base subdirectories
 		if Path(subdir).parent == Path(src_dir):
 			current_subdir += 1
 			artist_name = Path(subdir).name
+			if song_count > 0:
+				print(f"{Fore.CYAN}copied {Fore.GREEN}{song_count} {Fore.CYAN}songs{Style.RESET_ALL}")
 			print(f"{Fore.CYAN}crawling through artist {Fore.RED}{artist_name} {Fore.YELLOW}[{current_subdir}/{total_subdirs}]{Fore.CYAN}...{Style.RESET_ALL}")
+			song_count = 0
 
 		mp3_files = [file for file in files if file.endswith('.mp3')]
 		if mp3_files:
@@ -36,10 +40,15 @@ def copy_random_file(src_dir, dest_dir):
 			
 			dest_file_path = os.path.join(dest_subdir, selected_file)
 			shutil.copy2(src_file_path, dest_file_path)
-			print(f"copied {src_file_path} to {dest_file_path}")
-			time.sleep(1)
+			print(f"{Fore.GREEN}copied {Style.RESET_ALL}{src_file_path} {Fore.GREEN}to {Style.RESET_ALL}{dest_file_path}")
+			song_count += 1
+			# time.sleep(1)
+	print(f"{Fore.CYAN}copied {Fore.GREEN}{song_count} {Fore.CYAN}songs{Style.RESET_ALL}")
+	print(f"{Fore.CYAN}done! WAlkmAn is ready{Style.RESET_ALL}")
 
 # Replace these paths with your actual paths
+# source_directory = "E:\Musique"
+# destination_directory = "E:\WAlkmAn"
 source_directory = ".\\test-tree\\OG"
 destination_directory = ".\\test-tree\\dest"
 
