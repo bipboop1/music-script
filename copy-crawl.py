@@ -12,9 +12,12 @@ def count_base_subdirs(src_dir):
 
 def copy_random_file(src_dir, dest_dir):
 	total_subdirs = count_base_subdirs(src_dir)
-	print(f"{Fore.CYAN}Total number of artists: {Fore.YELLOW}{total_subdirs}{Style.RESET_ALL}")
+	print(f"\n")
+	print(f"{Fore.CYAN}▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀ ")
+	print(f"{Fore.CYAN}total number of artists: {Fore.YELLOW}{total_subdirs}{Style.RESET_ALL}")
 	current_subdir = 0
 	song_count = 0
+	total_song_count = 0
 
 	for subdir, dirs, files in os.walk(src_dir):
 		# only count and update for base subdirectories
@@ -42,9 +45,14 @@ def copy_random_file(src_dir, dest_dir):
 			shutil.copy2(src_file_path, dest_file_path)
 			print(f"{Fore.GREEN}copied {Style.RESET_ALL}{src_file_path} {Fore.GREEN}to {Style.RESET_ALL}{dest_file_path}")
 			song_count += 1
+			total_song_count += 1
 			# time.sleep(1)
 	print(f"{Fore.CYAN}copied {Fore.GREEN}{song_count} {Fore.CYAN}songs{Style.RESET_ALL}")
-	print(f"{Fore.CYAN}done! WAlkmAn is ready{Style.RESET_ALL}")
+	print(f"\n")
+	print(f"{Fore.CYAN}▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀ ")
+	print(f"{Fore.CYAN}▀▄▀▄▀▄ done! {Fore.RED}WAlkmAn{Fore.CYAN} is ready. ▄▀▄▀▄▀ ")
+	print(f"{Fore.CYAN}▀▄▀ copied {Fore.YELLOW}{total_song_count} {Fore.CYAN}songs from {Fore.YELLOW}{total_subdirs}{Fore.CYAN} artists.▀▄▀{Style.RESET_ALL}")
+	print(f"\n")
 
 # Replace these paths with your actual paths
 # source_directory = "E:\Musique"
