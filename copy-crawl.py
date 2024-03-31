@@ -5,8 +5,9 @@ from pathlib import Path
 
 def copy_random_file(src_dir, dest_dir):
     for subdir, dirs, files in os.walk(src_dir):
-        if files:
-            selected_file = random.choice(files)
+        mp3_files = [file for file in files if file.endswith('.mp3')]
+        if mp3_files:
+            selected_file = random.choice(mp3_files)
             src_file_path = os.path.join(subdir, selected_file)
             
             # Calculate relative path to maintain folder structure
