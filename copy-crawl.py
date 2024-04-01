@@ -46,7 +46,7 @@ def copy_random_file(src_dir, dest_dir):
 			print(f"{Fore.GREEN}copied {Style.RESET_ALL}{src_file_path} {Fore.GREEN}to {Style.RESET_ALL}{dest_file_path}")
 			song_count += 1
 			total_song_count += 1
-			# time.sleep(1)
+			# time.sleep(1) # only for testing
 	print(f"{Fore.CYAN}copied {Fore.GREEN}{song_count} {Fore.CYAN}songs{Style.RESET_ALL}")
 	print(f"\n")
 	print(f"{Fore.CYAN}▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀ ")
@@ -59,7 +59,7 @@ print(f"{Fore.MAGENTA}enter source directory path{Style.RESET_ALL} (default : .\
 user_input = input().strip()
 source_directory = user_input if user_input else ".\\test-tree\\OG"
 
-# set default destination directory
+# prompt user for destination directory
 print(f"{Fore.MAGENTA}enter destination directory path{Style.RESET_ALL} (default : .\Library){Style.RESET_ALL}")
 user_input = input().strip()
 destination_directory = user_input if user_input else ".\Library"
