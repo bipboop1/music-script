@@ -54,11 +54,15 @@ def copy_random_file(src_dir, dest_dir):
 	print(f"{Fore.CYAN}▀▄▀ copied {Fore.YELLOW}{total_song_count} {Fore.CYAN}songs from {Fore.YELLOW}{total_subdirs}{Fore.CYAN} artists.▀▄▀{Style.RESET_ALL}")
 	print(f"\n")
 
-# Replace these paths with your actual paths
-# source_directory = "E:\Musique"
-# destination_directory = "E:\WAlkmAn"
-source_directory = ".\\test-tree\\OG"
-destination_directory = ".\\test-tree\\dest"
+# prompt user for source directory
+print(f"{Fore.MAGENTA}enter source directory path{Style.RESET_ALL} (default : .\\test-tree\\OG){Style.RESET_ALL}")
+user_input = input().strip()
+source_directory = user_input if user_input else ".\\test-tree\\OG"
+
+# set default destination directory
+print(f"{Fore.MAGENTA}enter destination directory path{Style.RESET_ALL} (default : .\Library){Style.RESET_ALL}")
+user_input = input().strip()
+destination_directory = user_input if user_input else ".\Library"
 
 # Ensure the destination directory exists
 Path(destination_directory).mkdir(parents=True, exist_ok=True)
